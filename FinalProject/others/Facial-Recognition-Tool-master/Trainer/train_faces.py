@@ -22,7 +22,7 @@ def detect(image_path,name):
 
 def main():
     if len(sys.argv) != 2:
-        print "Usage: python train_faces.py <Name of person>"
+        print("Usage: python train_faces.py <Name of person>")
         sys.exit()
 
     name = sys.argv[1]
@@ -33,19 +33,19 @@ def main():
     directory_path = directory_path+sys.argv[1]+"/"
 
     if not os.path.exists(directory_path):
-        print "No images exist for the given person"
+        print("No images exist for the given person")
         sys.exit()
 
     os.chdir(directory_path)
     
-    print "Creating Proper Dataset......."
+    print("Creating Proper Dataset.......")
     images_exist = False
     for img in os.listdir("."):
         if img.endswith('.jpg') or img.endswith('.png') or img.endswith('.jpeg'):
             detect(img, name)
             images_exist = True
     if not images_exist:
-        print "No images found to create a dataset"
+        print("No images found to create a dataset")
 
 if __name__ == "__main__":
     main()
